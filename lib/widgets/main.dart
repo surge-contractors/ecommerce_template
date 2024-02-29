@@ -53,8 +53,6 @@ class _ManagedEcomViewState extends State<ManagedEcomView> {
   @override
   Widget build(BuildContext context) {
     return EcomView(
-      advancedDrawerController: advancedDrawerController,
-      zoomDrawerController: zoomDrawerController,
       colorScheme: widget.colorScheme,
       navigationConfiguration: widget.navigationConfiguration,
       drawerConfiguration: widget.drawerConfiguration,
@@ -85,8 +83,6 @@ class _ManagedEcomViewState extends State<ManagedEcomView> {
 class EcomView extends StatelessWidget {
   const EcomView({
     required this.currentNavigationNode,
-    required this.advancedDrawerController,
-    required this.zoomDrawerController,
     this.view,
     this.onCurrentNavigationNodeChanged,
     super.key,
@@ -152,12 +148,6 @@ class EcomView extends StatelessWidget {
 
   /// Called when the drawer is toggled.
   final void Function()? onDrawerToggle;
-
-  /// The controller for the advanced drawer.
-  final AdvancedDrawerController advancedDrawerController;
-
-  /// The controller for the zoom drawer.
-  final ZoomDrawerController zoomDrawerController;
 
   /// The body: if provided, it will be used as the body of the scaffold
   /// and no navigational elements will be used in determining the body.
@@ -368,7 +358,7 @@ class EcomView extends StatelessWidget {
               color: colorScheme.surface,
             ),
           ),
-          controller: advancedDrawerController,
+          controller: AdvancedDrawerController(),
           animationCurve: Curves.easeInOut,
           animationDuration: const Duration(milliseconds: 300),
           animateChildDecoration: true,
@@ -382,7 +372,7 @@ class EcomView extends StatelessWidget {
           menuScreen: drawerContent,
           menuBackgroundColor: colorScheme.surface,
           mainScreen: child,
-          controller: zoomDrawerController,
+          controller: ZoomDrawerController(),
           borderRadius: 24.0,
           showShadow: true,
           angle: -12.0,
