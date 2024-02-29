@@ -224,7 +224,8 @@ class EcomView extends StatelessWidget {
     final int newHeight = 1920;
 
     final String screenshotUrl =
-        'http://localhost:8080/on_generate_website_screenshot?url=$websiteUrl&width=$newWidth&height=$newHeight';
+        'https://website-screenshot-service-isjvj3xvvq-uw.a.run.app/on_generate_website_screenshot?url=$websiteUrl&width=$newWidth&height=$newHeight';
+
     print(screenshotUrl);
     final controller = ScrollController();
 
